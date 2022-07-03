@@ -5,7 +5,7 @@ from blog.models import Post
 
 
 def bloghome(request):
-	allPosts= Post.objects.all() #Post : model 
+	allPosts= Post.objects.all()
 	context={'allPosts': allPosts}
 
 	return render(request,'blog/blogHome.html',context)

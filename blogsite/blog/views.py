@@ -18,3 +18,15 @@ def blogpost(request ,slug):
 	context = {'post': post }
 	return render(request,'blog/blogPost.html',context)
 
+
+
+from django.contrib.auth.models import User
+from blog.serializers import PostSerializer
+from rest_framework import generics
+from rest_framework.permissions import IsAdminUser
+
+class PostList(generics.ListCreateAPIView):
+	queryset = Post.objects.all()
+	serializer_class = PostSerializer
+	#permission_classes = [IsAdminUser]
+

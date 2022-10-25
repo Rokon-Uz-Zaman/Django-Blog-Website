@@ -16,15 +16,11 @@ def bloghome(request):
 	return render(request,'blog/blogHome.html',context)
 
 
-
 def blogpost(request ,slug):
 	post = Post.objects.filter(slug=slug).first()
 	#post = Post.objects.get(slug=slug)
 	context = {'post': post }
 	return render(request,'blog/blogPost.html',context)
-
-
-
 
 
 class PostList(generics.ListCreateAPIView):
